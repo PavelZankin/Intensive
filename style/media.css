@@ -2,7 +2,7 @@
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 768px) {
-	#employer, #applicant {
+	.employer, .applicant {
 	margin-top:5px;
     width: 80px;
     box-sizing: border-box;
@@ -13,6 +13,19 @@
     color:#171813;
     box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
     background: lightgray;
+	}
+
+	.employer.active {
+	margin-top:5px;
+    width: 80px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.5em;
+    color:#171813;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+    background: #fff;
 	}
 
 	#specialty, #city {

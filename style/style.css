@@ -175,7 +175,7 @@ input[name=search] {
     height: 50px;
 
 }
-#employer, #applicant{
+.employer, .applicant{
     margin-top:5px;
     width: 170px;
     box-sizing: border-box;
@@ -188,6 +188,18 @@ input[name=search] {
     background: lightgray;
 }
 
+.employer.active {
+    margin-top:5px;
+    width: 170px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 40px;
+    font-size: 1.1em;
+    color:#171813;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+    background-color: #fff;
+}
 
 #numberOfRecords{
     bottom: 20px;

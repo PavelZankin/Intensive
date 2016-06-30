@@ -17,14 +17,23 @@
 <header>
 </header>
 <div id="search">
-    <input id="specialty" type="text" name="search" placeholder="например, программист">
-    <input id="city" type="text" name="search" placeholder="город">
-    <div id="buttonSearch"></div>
+
+    <input id="specialty" type="text" name="search" placeholder="Вакансия">
+
+    <input id="city" type="text" list="listCities" name="search" placeholder="Город">
+
+    <datalist id="listCities">
+        <option value="Ульяновск"></option>
+    </datalist>
+
+    <button id="buttonSearch"></button>
+
     <a id="moreSearch">Расширенный поиск</a>
-    <div id="employer"> для работадателей
-    </div>
-    <div id="applicant"> для соискателей
-    </div>
+
+    <div class="employer active"> Вакансии </div>
+
+    <div class="applicant"> Соискатели </div>
+
 </div>
 
 
@@ -65,8 +74,9 @@
             </div>
 
             <div class="checkboxTypeOfEmployment" colspan="2">
-            	<input type="checkbox"/>удаленная
-            	<input type="checkbox"/>в офисе
+            	<input type="checkbox" checked>полная
+            	<input type="checkbox">не полная
+                <input type="checkbox">другая
             </div>
 
         </div>
@@ -77,9 +87,9 @@
             </div>
 
             <div class="checkboxWorkSchedule" colspan="2">
-            	<input type="checkbox"/> 5/2,
-            	<input type="checkbox"/>2/2,
-            	<input type="checkbox"/>3/3
+            	<input type="checkbox" checked> полный день
+            	<input type="checkbox"> гибкий график
+                <input type="checkbox"> удаленная работа
             </div>
 
         </div>
