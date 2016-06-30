@@ -28,13 +28,13 @@ $('#moreSearch').on('click', function(){
 
 /* переключение вкладок между соискателем и работодателем*/
 
-$('#employer').on('click', function(){
-    $('#employer').css('background','#fff');
-    $('#applicant').css('background','lightgray')
+$('.employer').on('click', function(){
+    $('.employer').css('background','#fff');
+    $('.applicant').css('background','lightgray')
 });
-$('#applicant').on('click', function(){
-    $('#applicant').css('background','#fff');
-    $('#employer').css('background','lightgray')
+$('.applicant').on('click', function(){
+    $('.applicant').css('background','#fff');
+    $('.employer').css('background','lightgray')
 });
 
 /* раскрывающиеся div с вакансией */
