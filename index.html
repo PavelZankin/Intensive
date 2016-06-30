@@ -5,9 +5,10 @@
 <title>Найти работу</title>
 <link rel="stylesheet" href="style/style.css">
 <link rel="stylesheet" href="style/media.css">
-<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script-->
 <script src="scripts/components/jquery.min.js"></script>
 <script src="scripts/components/lodash.js"></script>
+<script src="scripts/api/hh.api.model.js"></script>
+<script src="scripts/api/sj.api.model.js"></script>
 
 </head>
 
@@ -39,7 +40,7 @@
 
             <div class="sizeSalaryInRub">
             	от <span class="min"></span> тысяч рублей
-            </div> 
+            </div>
 
         </div>
 
@@ -64,8 +65,8 @@
             </div>
 
             <div class="checkboxTypeOfEmployment" colspan="2">
-            	<input type="checkbox"/>удаленная     
-            	<input type="checkbox"/>в офисе   
+            	<input type="checkbox"/>удаленная
+            	<input type="checkbox"/>в офисе
             </div>
 
         </div>
@@ -76,8 +77,8 @@
             </div>
 
             <div class="checkboxWorkSchedule" colspan="2">
-            	<input type="checkbox"/> 5/2, 
-            	<input type="checkbox"/>2/2, 
+            	<input type="checkbox"/> 5/2,
+            	<input type="checkbox"/>2/2,
             	<input type="checkbox"/>3/3
             </div>
 
@@ -86,7 +87,7 @@
 		<input id="reset-btn" type="reset" value="Сбросить"/>
 
     </div>
-    
+
 </form>
 
 <div id="content">
@@ -104,7 +105,7 @@
     </div>
 
 </div>
-<script src="scripts/results.controller.js"></script>
-<script src="scripts/interface.controller.js"></script>
+<script src="scripts/search/search.view.js"></script>
+<script src="scripts/interface/interface.controller.js"></script>
 </body>
 </html>
