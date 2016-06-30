@@ -26,6 +26,9 @@ $('#moreSearch').on('click', function(){
     this.opened = !this.opened;
 });
 
+/* кнопка поиска */
+$('#buttonSearch').on('click', makeSearch);
+
 /* переключение вкладок между соискателем и работодателем*/
 
 $('#employer').on('click', function(){

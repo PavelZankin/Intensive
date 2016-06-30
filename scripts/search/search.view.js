@@ -1,3 +1,25 @@
+function getParams(){
+  return {
+    text: $('#specialty').value,
+    area: $('#city').value,
+    
+
+  }
+}
+
+// === testing ===
+console.log(getParams());
+
+function makeSearch() {
+  //hh
+  hh('vacancies', getParams(), function(response){
+    var vacs = response.items;
+    console.log('searching...');
+
+  });
+}
+
+
 $('#list-of-results')[0].innerHTML = `
 
     <div class="job">
