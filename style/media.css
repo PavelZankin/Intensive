@@ -1,0 +1,38 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 768px) {
+	#employer, #applicant {
+	margin-top:5px;
+    width: 80px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.5em;
+    color:#171813;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+    background: lightgray;
+	}
+
+	#specialty, #city {
+		margin-top: -35px; 
+	}
+
+	#buttonSearch {
+		margin-top: -41px;
+	}
+
+	#moreSearch {
+		margin-top: 10px;
+	}
+
+	#advancedSearch {
+		max-width: 600px;
+		left: 400px;
+	}
+
+	#search {
+		width: 100%;
+	}
+}

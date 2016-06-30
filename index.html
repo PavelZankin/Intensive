@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Найти работу</title>
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="style/media.css">
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script-->
+<script src="scripts/components/jquery.min.js"></script>
+<script src="scripts/components/lodash.js"></script>
+
+</head>
+
+<body>
+
+<header>
+</header>
+<div id="search">
+    <input id="specialty" type="text" name="search" placeholder="например, программист">
+    <input id="city" type="text" name="search" placeholder="город">
+    <div id="buttonSearch"></div>
+    <a id="moreSearch">Расширенный поиск</a>
+    <div id="employer"> для работадателей
+    </div>
+    <div id="applicant"> для соискателей
+    </div>
+</div>
+
+
+<form id="advancedSearch" name="advancedSearch" method="get" action="">
+     <div class="advSearch">
+        <div>
+
+        	<div class="salary">
+            	Уровень заработной платы
+            </div>
+
+            	<input class="sizeSalary" type="range" min="0" max="100" step="10" oninput="sizeSal()" value="0">
+
+            <div class="sizeSalaryInRub">
+            	от <span class="min"></span> тысяч рублей
+            </div> 
+
+        </div>
+
+        <div>
+
+            <div class="workExp">
+            	Текущий опыт работы
+            </div>
+
+            	<input id="sizeExp" type="range" min="0" max="10" oninput="Expirience()" value="3">
+
+            <div class="sizeExpInYears">
+            	от <span id="minExp"></span> лет
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="typeOfEmployment">
+            	Тип занятости:
+            </div>
+
+            <div class="checkboxTypeOfEmployment" colspan="2">
+            	<input type="checkbox"/>удаленная     
+            	<input type="checkbox"/>в офисе   
+            </div>
+
+        </div>
+
+        <div>
+            <div class="workSchedule">
+            	График работы:
+            </div>
+
+            <div class="checkboxWorkSchedule" colspan="2">
+            	<input type="checkbox"/> 5/2, 
+            	<input type="checkbox"/>2/2, 
+            	<input type="checkbox"/>3/3
+            </div>
+
+        </div>
+
+		<input id="reset-btn" type="reset" value="Сбросить"/>
+
+    </div>
+    
+</form>
+
+<div id="content">
+
+    <div id="list-of-results">
+    </div>
+
+    <div id="numberOfRecords">
+        Отображать на странице:
+        <select>
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+        </select>
+    </div>
+
+</div>
+<script src="scripts/results.controller.js"></script>
+<script src="scripts/interface.controller.js"></script>
+</body>
+</html>
