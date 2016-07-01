@@ -5,13 +5,12 @@ function hh(api, par, cb){
     hh.lastResultObj = resp;
   }
 
-  $.getJSON(query, params, callback);
+  $.get(query, params, callback);
 
 }
 
 hh.apiDomain = 'https://api.hh.ru/';
 hh.lastResultObj = null;
 
-
 /* ====== testing ======= */
-hh('vacancies', {text: 'программист'});
+hh('vacancies', {text: 'программист', area: '1'});

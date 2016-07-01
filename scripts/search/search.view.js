@@ -1,21 +1,15 @@
-function getParams(){
-  return {
-    text: $('#specialty').value,
-    area: $('#city').value,
+var templ = `
+  <% vacs.forEach(function(vac) { %>
     
-
-  }
-}
-
-// === testing ===
-console.log(getParams());
+  <% }); %>
+`;
 
 function makeSearch() {
   //hh
+  console.log(getParams());
   hh('vacancies', getParams(), function(response){
     var vacs = response.items;
-    console.log('searching...');
-
+    console.log(vacs);
   });
 }
 
