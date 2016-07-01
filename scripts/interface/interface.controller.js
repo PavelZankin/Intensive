@@ -47,6 +47,10 @@ for (var i=0; i<searchResults.lenght; i++) {
   searchResults[i].opened = false;
 }
 $('.job').on('click', function(){
+
+    $(this).css('height','auto');
+    return;
+    //
     if (this.opened) {
         $(this).css('height','160px');
     } else {

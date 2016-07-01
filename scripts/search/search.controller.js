@@ -35,8 +35,9 @@ function getParams(){
   return {
     text: $('#specialty')[0].value,
     area: areas[$('#city')[0].value] || 113, // Россия
+    currency: 'RUR',
     salary: +($('.min')[0].innerHTML + '000') || 1000,
     //experience: $('#minExp')[0].innerHTML || 0,
-    per_page: 500,
+    per_page: $('#per_page')[0].value || 50,
   }
 }

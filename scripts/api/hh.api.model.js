@@ -2,15 +2,14 @@ function hh(api, par, cb){
   var query = hh.apiDomain + api;
   var params = par || ({});
   var callback = cb || function(resp) {
-    hh.lastResultObj = resp;
+    console.log('hh-mes: Нет обработчика объекта ответа!');
   }
 
-  $.get(query, params, callback);
-
+  $.get(query, params, function(resp) {
+    hh.lastResultObj = resp;
+    callback(resp);
+  });
 }
 
 hh.apiDomain = 'https://api.hh.ru/';
 hh.lastResultObj = null;
-
-/* ====== testing ======= */
-hh('vacancies', {text: 'программист', area: '1'});
