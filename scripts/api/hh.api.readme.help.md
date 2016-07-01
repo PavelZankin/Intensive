@@ -100,3 +100,26 @@ sort_point_lat, sort_point_lng - значение гео-координат точки, по расстоянию от 
 clusters — возвращать ли список кластеров для данного поиска, по умолчанию: false. Подробнее /docs/clusters.md.
 
 per_page, page — параметры пагинации.
+
+===================================================================================
+
+Вот таким кодом можно получить нормальный JSON areas!
+
+hh('areas', {per_page: 10000000}, function(countries){
+  var goodList = {};
+
+  countries.forEach(function(country) {
+    goodList[country.name] = country.id; //countries
+    var kids = country.areas;
+    kids.forEach(function(region){
+      goodList[region.name] = region.id; //regions
+      kids = region.areas;
+      kids.forEach(function(city){
+        goodList[city.name] = city.id; // cities
+      });
+    });
+  });
+  console.log(typeof goodList);
+  var jGoodList = JSON.stringify(goodList);
+  console.log(jGoodList);
+});

@@ -1,8 +1,8 @@
-var areas = {
-  "Ульяновск": 98,
-  "Москва": 1,
-  "Санкт-Петербург": 2
-}
+var areas = {}
+
+$.getJSON('scripts/api/hh.areas.json', {}, function(ans){
+  areas = ans;
+});
 
 function getStringParam4CeckBoxes() {
   var empl = $('#employment')[0];

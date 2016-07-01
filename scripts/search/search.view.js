@@ -33,7 +33,7 @@ function makeSearch() {
       $('#list-of-results')[0].innerHTML = `
         <h1>
           НИЧЕГО, СОВЕРШЕННО НИЧЕГО НЕ НАЙДЕНО!<br/>
-          ПО ЗПРОСУ: ${getParams().text}!!!
+          ПО ЗАПРОСУ: ${getParams().text}!!!
         </h1>
       `;
       return;
