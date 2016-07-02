@@ -81,7 +81,7 @@ StaticServlet.MimeMap = {
   'jpg': 'image/jpeg',
   'jpeg': 'image/jpeg',
   'gif': 'image/gif',
-  'png': 'image/png'
+  'png': 'image/png',
 };
 
 StaticServlet.prototype.handleRequest = function(req, res) {
@@ -96,7 +96,8 @@ StaticServlet.prototype.handleRequest = function(req, res) {
     if (err)
       return self.sendMissing_(req, res, path);
     if (stat.isDirectory())
-      return self.sendDirectory_(req, res, path);
+    return self.sendFile_(req, res, path+'/index.html');
+    //return self.sendDirectory_(req, res, path);
     return self.sendFile_(req, res, path);
   });
 }
