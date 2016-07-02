@@ -76,7 +76,7 @@ input[name=search] {
 
 #advancedSearch{
     display: block;
-    height: 205px;
+    height: 155px;
     width: 770px;
     /* Указать минимальную ширину */
     left:50%;

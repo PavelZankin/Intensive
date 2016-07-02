@@ -1,4 +1,4 @@
-var templ = `
+var hhTempl = `
   <% vacs.forEach(function(vac) { %>
     <div class="job">
     <h3><%- vac.name %></h3>
@@ -25,23 +25,8 @@ var templ = `
   <% }); %>
 `;
 
-function makeSearch() {
-  if (!getParams().text) return;
-
-  hh('vacancies', getParams(), function(response){
-    if (!response.items.length) {
-      $('#list-of-results')[0].innerHTML = `
-        <h1>
-          НИЧЕГО, СОВЕРШЕННО НИЧЕГО НЕ НАЙДЕНО!<br/>
-          ПО ЗАПРОСУ: ${getParams().text}!!!
-        </h1>
-      `;
-      return;
-    };
-
-    $('#list-of-results')[0].innerHTML = _.template(templ)({
-      vacs: response.items,
-    });
-
+function displayVacancies(vacancies) {
+  $('#list-of-results')[0].innerHTML = _.template(hhTempl)({
+    vacs: vacancies,
   });
 }

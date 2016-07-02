@@ -1,6 +1,6 @@
 function hh(api, par, cb){
   var query = hh.apiDomain + api;
-  var params = par || ({});
+  var params = par || hh.getLocalParams();
   var callback = cb || function(resp) {
     console.log('hh-mes: Нет обработчика объекта ответа!');
   }
@@ -12,4 +12,5 @@ function hh(api, par, cb){
 }
 
 hh.apiDomain = 'https://api.hh.ru/';
-hh.lastResultObj = null;
+hh.lastResultObj = 'no result';
+hh.getLocalParams = {};
