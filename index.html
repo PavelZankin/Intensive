@@ -34,7 +34,7 @@
 
     <div class="employer active"> Вакансии </div>
 
-    <div class="applicant"> Соискатели </div>
+    <div class="applicant"> Избранное </div>
 
 </div>
 
@@ -83,19 +83,6 @@
 
         </div>
 
-        <div>
-            <div class="workSchedule">
-            	График работы:
-            </div>
-
-            <div id="schedule" class="checkboxWorkSchedule" colspan="2">
-            	<input type="checkbox" checked> полный день
-            	<input type="checkbox"> гибкий график
-                <input type="checkbox"> удаленная работа
-            </div>
-
-        </div>
-
 		<input id="reset-btn" type="reset" value="Сбросить"/>
 
     </div>
@@ -105,6 +92,9 @@
 <div id="content">
 
     <div id="list-of-results">
+    </div>
+
+    <div id="list-of-favorites">
     </div>
 
     <div id="numberOfRecords">
@@ -117,8 +107,11 @@
     </div>
 
 </div>
+
+<script src="scripts/favorites/favorites.js"></script>
 <script src="scripts/search/search.controller.js"></script>
 <script src="scripts/search/search.view.js"></script>
 <script src="scripts/interface/interface.controller.js"></script>
+
 </body>
 </html>

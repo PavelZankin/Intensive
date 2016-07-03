@@ -48,4 +48,13 @@
 	#search {
 		width: 100%;
 	}
+
+	.job h3 {
+		font-size: 16px;
+	}
+
+	.job a {
+	 	padding-top: 20px;
+	 	right: 20px;
+	}
 }
