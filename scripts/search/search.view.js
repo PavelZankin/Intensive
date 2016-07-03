@@ -15,6 +15,12 @@ var hhTempl = `
 
     <div class="responsibility">
       <%= vac.snippet.responsibility %>
+    </div><br/>
+
+    <div class="salary">
+      <span>Зарплата</span><br/>
+      <span>От: <%- vac.salary.from %> </span><br/>
+      <span>До: <%- vac.salary.to %> </span><br/>
     </div>
 
     <br/>
@@ -22,6 +28,7 @@ var hhTempl = `
     <span class="date"><%- vac.created_at %></span>
 
     <hr/>
+    </div>
   <% }); %>
 `;
 

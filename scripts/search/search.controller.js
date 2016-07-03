@@ -26,6 +26,22 @@ hh.getLocalParams = function() {
   }
 }
 
+function hhParseDate(hhDate) {
+  // format '(yyyy-mm-dd)T(hh:mm:ss)[+-]GMT'
+
+  var dateArr = hhDate.match(/\d{4}-\d{2}-\d{2}/)[0].split('-'),
+      timeArr = hhDate.match(/\d{2}:\d{2}:\d{2}/)[0].split(':');
+
+  return {
+    year: dateArr[0],
+    month: dateArr[1],
+    day: dateArr[2],
+    hour: timeArr[0],
+    minute: timeArr[1],
+    second: timeArr[2]
+  };
+}
+
 function getStringParam4CeckBoxes() {
   var empl = $('#employment')[0];
   var sched = $('#schedule')[0];
@@ -66,7 +82,25 @@ function makeSearch() {
       `;
       return;
     };
-    displayVacancies(response.items);
+
+    //обработаем параметры, чтобы все было валидно и не вызывало ошибок...
+    var vacs = response.items;
+    vacs.forEach(function(vac){
+      if (!vac.salary) {
+        vac.salary = {
+          from: 'Не указано',
+          to: 'Не указано'
+        }
+      } else if (!vac.salary.from || !vac.salary.to) {
+        vac.salary.from = vac.salary.from || 'Не указано';
+        vac.salary.to = vac.salary.to || 'Не указано';
+      }
+
+      var d = hhParseDate(vac.created_at);
+      vac.created_at = d.day+'.'+d.month+'.'+d.year+'  '+d.hour+':'+d.minute;
+    });
+
+    displayVacancies(vacs);
 
   });
 }
