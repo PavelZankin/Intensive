@@ -5,8 +5,16 @@ var hhTempl = `
     <img class="star" src="../images/star.png" alt="" />
 
     <h3><%- vac.name %></h3>
+    <a href=<%- vac.alternate_url %> >(Посмотреть на hh.ru)</a>
+    <div class="responsibility">
+      <%= vac.snippet.responsibility %>
+    </div><br/>
 
-    <a href=<%- vac.alternate_url %> >("Посмотреть на hh.ru")</a>
+    <div class="salary">
+      <span>Зарплата</span><br/>
+      <span>От: <%- vac.salary.from %> </span><br/>
+      <span>До: <%- vac.salary.to %> </span><br/>
+    </div>
 
     <br/>
 

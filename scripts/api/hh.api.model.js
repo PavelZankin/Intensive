@@ -1,3 +1,5 @@
+'use strict';
+
 function hh(api, par, cb){
   var query = hh.apiDomain + api;
   var params = par || hh.getLocalParams();

@@ -83,7 +83,7 @@ function makeSearch() {
       return;
     };
 
-
+    //обработаем параметры, чтобы все было валидно и не вызывало ошибок...
     var vacs = response.items;
     vacs.forEach(function(vac){
       if (!vac.salary) {
