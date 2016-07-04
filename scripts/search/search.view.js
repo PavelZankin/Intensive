@@ -6,12 +6,17 @@ var hhTempl = `
 
     <h3><%- vac.name %></h3>
     <a href=<%- vac.alternate_url %> >(Посмотреть на hh.ru)</a>
+
     <div class="responsibility">
       <%= vac.snippet.responsibility %>
     </div><br/>
 
+    <div class="requirement">
+      <%= vac.snippet.requirement %>
+    </div><br/>
+
     <div class="salary">
-      <span>Зарплата</span><br/>
+      <span>Зарплата: </span><br/>
       <span>От: <%- vac.salary.from %> </span><br/>
       <span>До: <%- vac.salary.to %> </span><br/>
     </div>
