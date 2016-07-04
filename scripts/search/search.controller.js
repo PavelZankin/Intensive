@@ -66,7 +66,25 @@ function makeSearch() {
       `;
       return;
     };
-    displayVacancies(response.items);
+
+
+    var vacs = response.items;
+    vacs.forEach(function(vac){
+      if (!vac.salary) {
+        vac.salary = {
+          from: 'Не указано',
+          to: 'Не указано'
+        }
+      } else if (!vac.salary.from || !vac.salary.to) {
+        vac.salary.from = vac.salary.from || 'Не указано';
+        vac.salary.to = vac.salary.to || 'Не указано';
+      }
+
+      var d = hhParseDate(vac.created_at);
+      vac.created_at = d.day+'.'+d.month+'.'+d.year+'  '+d.hour+':'+d.minute;
+    });
+
+    displayVacancies(vacs);
 
   });
 }
