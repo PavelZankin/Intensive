@@ -21,7 +21,7 @@ $('#moreSearch').on('click', function(){
       $('#content').css('top','0');
     }else{
       $('#advancedSearch').css('visibility','visible');
-      $('#content').css('top','205px');
+      $('#content').css('top','150px');
     }
     this.opened = !this.opened;
 });
@@ -29,15 +29,16 @@ $('#moreSearch').on('click', function(){
 /* кнопка поиска */
 $('#buttonSearch').on('click', makeSearch);
 
+
 /* переключение вкладок между соискателем и работодателем*/
 
 $('.employer').on('click', function(){
-    $('.employer').css('background','#fff');
-    $('.applicant').css('background','lightgray')
+    $('.employer').css('background','#fff').addClass('active');
+    $('.applicant').css('background','lightgray').removeClass('active');
 });
 $('.applicant').on('click', function(){
-    $('.applicant').css('background','#fff');
-    $('.employer').css('background','lightgray')
+    $('.applicant').css('background','#fff').addClass('active');
+    $('.employer').css('background','lightgray').removeClass('active');
 });
 
 /* раскрывающиеся div с вакансией */
