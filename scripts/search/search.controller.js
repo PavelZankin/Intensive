@@ -26,6 +26,22 @@ hh.getLocalParams = function() {
   }
 }
 
+function hhParseDate(hhDate) {
+  // format '(yyyy-mm-dd)T(hh:mm:ss)[+-]GMT'
+
+  var dateArr = hhDate.match(/\d{4}-\d{2}-\d{2}/)[0].split('-'),
+      timeArr = hhDate.match(/\d{2}:\d{2}:\d{2}/)[0].split(':');
+
+  return {
+    year: dateArr[0],
+    month: dateArr[1],
+    day: dateArr[2],
+    hour: timeArr[0],
+    minute: timeArr[1],
+    second: timeArr[2]
+  };
+}
+
 function getStringParam4CeckBoxes() {
   var empl = $('#employment')[0];
   var sched = $('#schedule')[0];
