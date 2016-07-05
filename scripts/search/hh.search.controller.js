@@ -34,7 +34,7 @@ hh.getLocalParams = function() {
     currency: 'RUR',
     salary: +($('.min')[0].innerHTML + '000') || 1000,
     //experience: $('#minExp')[0].innerHTML || 0,
-    per_page: $('#per_page')[0].value || 50,
+    per_page: $('#per_page')[0].value /2 || 50,
   }
 }
 
@@ -81,15 +81,17 @@ function getStringParam4CeckBoxes() {
   // незаконченная функция, работает некорректно!!!
 }
 
-function makeSearch() {
+function hhSearch() {
   if (!hh.getLocalParams().text) return;
 
   hh('vacancies', null, function(response){
     if (!response.items.length) {
-      $('#list-of-results')[0].innerHTML = `
+      $('#list-of-results')[0].innerHTML += `
         <h1>
-          hh-mes: НИЧЕГО, СОВЕРШЕННО НИЧЕГО НЕ НАЙДЕНО<br/>
-          ПО ЗАПРОСУ: ${hh.getLocalParams().text}!!!
+          <br/>
+            hh-mes: НИЧЕГО, СОВЕРШЕННО НИЧЕГО НЕ НАЙДЕНО<br/>
+            ПО ЗАПРОСУ: ${hh.getLocalParams().text}!!!
+          <br/>
         </h1>
       `;
       return;
@@ -110,9 +112,10 @@ function makeSearch() {
 
       var d = hhParseDate(vac.created_at);
       vac.created_at = d.day+'.'+d.month+'.'+d.year+'  '+d.hour+':'+d.minute;
+      vac.unixTimeFormat = +(new Date(d.year, d.month, d.day, d.hour, d.minute, d.second));
     });
 
-    displayVacancies(vacs);
+    displayVacancies(vacs, 'hh');
 
   });
 }

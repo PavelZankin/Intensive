@@ -27,7 +27,18 @@ $('#moreSearch').on('click', function(){
 });
 
 /* кнопка поиска */
-$('#buttonSearch').on('click', makeSearch);
+$('#buttonSearch').on('click', function() {
+  hhSearch();
+  sjSearch();
+});
+
+
+$('#per_page').on('change', function() {
+  hhSearch();
+  sjSearch();
+});
+
+
 
 
 /* переключение вкладок между соискателем и работодателем*/

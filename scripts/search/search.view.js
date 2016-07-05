@@ -7,26 +7,6 @@ var hhTempl = `
     <h3><%- vac.name %></h3>
     <a href=<%- vac.alternate_url %> > (hh.ru) </a>
 
-    <div class="area">
-      <span> <%- vac.area.name %> </span>
-    </div><br/>
-
-    <div class="responsibility">
-      <span>Обязанности:</span><br/>
-      <%= vac.snippet.responsibility %>
-    </div><br/>
-
-    <div class="requirement">
-    <span>Требования:</span><br/>
-      <%= vac.snippet.requirement %>
-    </div><br/>
-
-    <div class="salary">
-      <span>Зарплата: </span><br/>
-      <span>От: <%- vac.salary.from %> </span><br/>
-      <span>До: <%- vac.salary.to %> </span><br/>
-    </div><br/><br/>
-
     <span class="date"><%- vac.created_at %></span><br/>
 
     <hr/>
@@ -34,11 +14,40 @@ var hhTempl = `
   <% }); %>
 `;
 
+var sjTempl = `
+  <% vacs.forEach(function(vac) { %>
+  <div class="job">
 
-function displayVacancies(vacancies) {
-  $('#list-of-results')[0].innerHTML = _.template(hhTempl)({
-    vacs: vacancies
-  });
+  <img class="star" src="../images/star.png" alt="" />
+
+  <h3><%- vac.profession %></h3>
+  <a href=<%- vac.link %> > (superjob.ru) </a>
+
+  <span class="date"><%- vac.date_published %></span><br/>
+
+  <hr/>
+  </div>
+<% }); %>
+`;
+
+
+function displayVacancies(vacancies, format) {
+
+  if ($('#list-of-results')[0].innerHTML.match(/-mes: /)) {
+    $('#list-of-results')[0].innerHTML = '';
+  }
+
+  if (format == 'hh') {
+    $('#list-of-results')[0].innerHTML += _.template(hhTempl)({
+      vacs: vacancies
+    });
+  }else if (format == 'sj') {
+    $('#list-of-results')[0].innerHTML += _.template(sjTempl)({
+      vacs: vacancies
+    });
+  }else{
+    throw new Error('Не верен (или не указан) format вывода вакансий;');
+  }
 
     $('.employer').css('background','#fff');
     $('.applicant').css('background','lightgray')
