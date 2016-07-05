@@ -1,8 +1,20 @@
 /* HeadHunter */
-var areas = {}
+var areas = {};
 
-$.getJSON('scripts/api/hh.areas.json', {}, function(ans){
-  areas = ans;
+hh('areas', {per_page: 10000000}, function(countries){
+  var goodList = {};
+  countries.forEach(function(country) {
+    goodList[country.name] = country.id; //countries
+    var kids = country.areas;
+    kids.forEach(function(region){
+      goodList[region.name] = region.id; //regions
+      kids = region.areas;
+      kids.forEach(function(city){
+        goodList[city.name] = city.id; // cities
+      });
+    });
+  });
+  areas = goodList;
 });
 
 function getArea() {

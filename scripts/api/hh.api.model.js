@@ -15,4 +15,6 @@ function hh(api, par, cb){
 
 hh.apiDomain = 'https://api.hh.ru/';
 hh.lastResultObj = 'no result';
-hh.getLocalParams = {};
+hh.getLocalParams = function () {
+  return {};
+};
