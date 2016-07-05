@@ -1,7 +1,5 @@
-You need a server to use this app. 
+You need NodeJS to use this app. 
 
-Apache: download XAMPP (https://www.apachefriends.org/ru/download.html);
-	run: start Apache by control panel (localhost);
-
-NodeJS: download NodeJS (https://nodejs.org/en/);
+	download: NodeJS (https://nodejs.org/en/);
+	install: $ node i;
 	run: $ node server.js (localhost);
