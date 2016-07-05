@@ -2,3 +2,5 @@
 *~
 ~*
 no-git.*
+node_modules/
+bower_modules/
