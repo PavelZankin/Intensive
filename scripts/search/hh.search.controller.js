@@ -23,14 +23,14 @@ function getArea() {
   word = word.toLowerCase();
   var firstLetter = word[0].toUpperCase();
   var ending = word.slice(1);
-  return areas[firstLetter+ending];
+  return firstLetter+ending;
 }
 
 
 hh.getLocalParams = function() {
   return {
     text: $('#specialty')[0].value,
-    area: getArea() || 113, // Россия
+    area: areas[getArea()] || 113, // Россия
     currency: 'RUR',
     salary: +($('.min')[0].innerHTML + '000') || 1000,
     //experience: $('#minExp')[0].innerHTML || 0,
