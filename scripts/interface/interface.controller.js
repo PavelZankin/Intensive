@@ -32,14 +32,18 @@ $('#buttonSearch').on('click', function() {
   sjSearch();
 });
 
-
 $('#per_page').on('change', function() {
   hhSearch();
   sjSearch();
 });
 
-
-
+/* Клик по вакансии */
+$('#list-of-results').on('click', function(event) {
+  var elem = event.target;
+  if (elem.hasAttribute('data-link')) {
+    open(elem.getAttribute('data-link'));
+  }
+});
 
 /* переключение вкладок между соискателем и работодателем*/
 

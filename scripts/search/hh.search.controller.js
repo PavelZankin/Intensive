@@ -92,7 +92,7 @@ function hhSearch() {
       $('#list-of-results')[0].innerHTML += `
         <h1>
           <br/>
-            hh-mes: НИЧЕГО, СОВЕРШЕННО НИЧЕГО НЕ НАЙДЕНО<br/>
+            hh-mes: НИЧЕГО НЕ НАЙДЕНО<br/>
             ПО ЗАПРОСУ: ${hh.getLocalParams().text}!!!
           <br/>
         </h1>

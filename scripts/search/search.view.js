@@ -1,11 +1,22 @@
 var hhTempl = `
   <% vacs.forEach(function(vac) { %>
-    <div class="job">
+    <div class="job" data-link="<%- vac.alternate_url %>">
 
     <img class="star" src="../images/star.png" alt="" />
 
     <h3><%- vac.name %></h3>
-    <a href=<%- vac.alternate_url %> > (hh.ru) </a>
+
+    <div class="area">
+      <%- vac.area.name %>
+    </div><br/>
+
+    <div class="salary">
+      <span>Зарплата:</span><br/>
+      <span> От: <%- vac.salary.from %></span><br/>
+      <span> До: <%- vac.salary.to %></span><br/>
+    </div><br/>
+
+
 
     <span class="date"><%- vac.created_at %></span><br/>
 
@@ -16,12 +27,21 @@ var hhTempl = `
 
 var sjTempl = `
   <% vacs.forEach(function(vac) { %>
-  <div class="job">
+  <div class="job" data-link="<%- vac.link %>">
 
   <img class="star" src="../images/star.png" alt="" />
 
   <h3><%- vac.profession %></h3>
-  <a href=<%- vac.link %> > (superjob.ru) </a>
+
+  <div class="area">
+    <%- vac.address %>
+  </div><br/>
+
+  <div class="salary">
+    <span>Зарплата:</span><br/>
+    <span> От: <%- vac.payment_from %></span><br/>
+    <span> До: <%- vac.payment_to %></span><br/>
+  </div><br/>
 
   <span class="date"><%- vac.date_published %></span><br/>
 
@@ -59,12 +79,12 @@ function displayVacancies(vacancies, format) {
     $('.star').on('click', function() {
       var favoritesVacancies = $(this, '.star').parent();
       var urlFavoritesVacansies = $(this, '.star').parent().children('span').text();
-      
+
       if (favoritesVacancies.hasClass('favorites')) {
         favoritesVacancies.removeClass('favorites');
         localStorage.removeItem('favoritesVacancies' + urlFavoritesVacansies);
-        
-    
+
+
       }else{
         favoritesVacancies.addClass('favorites');
         localStorage.setItem('favoritesVacancies' + urlFavoritesVacansies, favoritesVacancies.get(0).outerHTML);
@@ -74,4 +94,3 @@ function displayVacancies(vacancies, format) {
     });
 
 }
-

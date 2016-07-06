@@ -31,7 +31,7 @@ function sjSearch() {
       $('#list-of-results')[0].innerHTML += `
         <h1>
         <br/>
-          sj-mes: НИЧЕГО, СОВЕРШЕННО НИЧЕГО НЕ НАЙДЕНО<br/>
+          sj-mes: НИЧЕГО НЕ НАЙДЕНО<br/>
           ПО ЗАПРОСУ: ${sj.getLocalParams().keyword}!!!
         <br/>
         </h1>
@@ -41,6 +41,12 @@ function sjSearch() {
 
     var vacs = response.objects;
     vacs.forEach(function(vac){
+
+      if (!vac.payment_from || !vac.payment_to) {
+        vac.payment_from = vac.payment_from || 'Не указано';
+        vac.payment_to = vac.payment_to || 'Не указано';
+      }
+
       var d = sjParseDate(vac.date_published);
       vac.date_published = d.day+'.'+d.month+'.'+d.year+'  '+d.hour+':'+d.minute;
       vac.unixTimeFormat = +(new Date(d.year, d.month-1, d.day, d.hour, d.minute, d.second));
