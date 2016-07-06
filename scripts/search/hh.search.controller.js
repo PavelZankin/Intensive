@@ -54,51 +54,27 @@ function hhParseDate(hhDate) {
   };
 }
 
-function getStringParam4CeckBoxes() {
-  var empl = $('#employment')[0];
-  var sched = $('#schedule')[0];
-  var eChecked = [];
-  var sChecked = [];
-
-  for (var i=0; i<empl.children.length; i++) {
-    if (empl.children[i].checked) {
-      eChecked[i] = true;
-    }
-  }
-  console.log(eChecked);
-
-  for (var i=0; i<sched.children.length; i++) {
-    if (sched.children[i].checked) {
-      sChecked[i] = true;
-    }
-  }
-  console.log(sChecked);
-  var eStringParam = '?employment=';
-  var sStringParem = '&schedule=';
-
-  if (eChecked[0]) eStringParam += 'full&employment=';
-
-  // незаконченная функция, работает некорректно!!!
-}
-
 function hhSearch() {
   if (!hh.getLocalParams().text) return;
+  if (hh.getLocalParams().text.length > 256) return;
 
   hh('vacancies', null, function(response){
     if (!response.items.length) {
       if ($('#list-of-results')[0].innerHTML.match(/\(*?.ru\)/)) {
         $('#list-of-results')[0].innerHTML = '';
       }
-      $('#list-of-results')[0].innerHTML += `
-        <h1>
-          <br/>
-            hh-mes: НИЧЕГО НЕ НАЙДЕНО<br/>
-            ПО ЗАПРОСУ: ${hh.getLocalParams().text}!!!
-          <br/>
-        </h1>
-      `;
-      return;
-    };
+      if (!$('#list-of-results')[0].innerHTML.match(/По данному запросу ничего/)) {
+        $('#list-of-results')[0].innerHTML = `
+          <h1>
+            <br/>
+              По данному запросу ничего не найдено.
+            <br/>
+          </h1>
+        `;
+        return;
+        };
+      }
+
 
     //обработаем параметры, чтобы все было валидно и не вызывало ошибок...
     var vacs = response.items;

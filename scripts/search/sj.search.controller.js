@@ -23,21 +23,25 @@ function sjParseDate(date) {
 }
 
 function sjSearch() {
+  if (!sj.getLocalParams().keyword) return;
+  if (sj.getLocalParams().keyword.length > 256) return;
+
   sj('vacancies', null, function(response) {
     if (!response.objects.length) {
       if ($('#list-of-results')[0].innerHTML.match(/\(*?.ru\)/)) {
         $('#list-of-results')[0].innerHTML = '';
       }
-      $('#list-of-results')[0].innerHTML += `
-        <h1>
-        <br/>
-          sj-mes: НИЧЕГО НЕ НАЙДЕНО<br/>
-          ПО ЗАПРОСУ: ${sj.getLocalParams().keyword}!!!
-        <br/>
-        </h1>
-      `;
-      return;
-    };
+      if (!$('#list-of-results')[0].innerHTML.match(/По данному запросу ничего/)) {
+        $('#list-of-results')[0].innerHTML = `
+          <h1>
+            <br/>
+              По данному запросу ничего не найдено.
+            <br/>
+          </h1>
+        `;
+        return;
+        };
+      }
 
     var vacs = response.objects;
     vacs.forEach(function(vac){
