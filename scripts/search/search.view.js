@@ -48,10 +48,21 @@ function displayVacancies(vacancies) {
     }
 
     $('.star').on('click', function() {
-      if ($(this, '.star').parent().hasClass('favorites')) {
-        $(this, '.star').parent().removeClass('favorites');
+      var favoritesVacancies = $(this, '.star').parent();
+      var urlFavoritesVacansies = $(this, '.star').parent().children('span').text();
+      
+      if (favoritesVacancies.hasClass('favorites')) {
+        favoritesVacancies.removeClass('favorites');
+        localStorage.removeItem('favoritesVacancies' + urlFavoritesVacansies);
+        
+    
       }else{
-        $(this, '.star').parent().addClass('favorites');
+        favoritesVacancies.addClass('favorites');
+        localStorage.setItem('favoritesVacancies' + urlFavoritesVacansies, favoritesVacancies.get(0).outerHTML);
+        $('#list-of-favorites').append(localStorage.getItem('favoritesVacancies' + urlFavoritesVacansies));
       }
+
     });
+
 }
+
