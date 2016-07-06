@@ -239,17 +239,5 @@ StaticServlet.prototype.writeDirectoryIndex_ = function(req, res, path, files) {
   res.write('</ol>');
   res.end();
 };
-
-var proxy = require('express-http-proxy');
- 
-var app = require('express')();
- 
-app.use('/', proxy('https://api.superjob.ru', {
- decorateRequest: function(reqOpt, req) {
-  reqOpt.headers['X-Api-App-Id'] = 'v1.r0752ba4599e089b98dc367ec25b0a19757edd951a719e955fbbe69451d6e8be6a7dee63e.284debb93b9b73e6158488aad76de2050822fc07';
-  return reqOpt;
-   }
-}));
-app.listen(100);
 // Must be last,
 main(process.argv);
