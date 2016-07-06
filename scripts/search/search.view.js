@@ -38,7 +38,7 @@ function displayVacancies(vacancies, format) {
   }
 
   if (format == 'hh') {
-    $('#list-of-results')[0].innerHTML += _.template(hhTempl)({
+    $('#list-of-results')[0].innerHTML = _.template(hhTempl)({
       vacs: vacancies
     });
   }else if (format == 'sj') {

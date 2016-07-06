@@ -25,6 +25,9 @@ function sjParseDate(date) {
 function sjSearch() {
   sj('vacancies', null, function(response) {
     if (!response.objects.length) {
+      if ($('#list-of-results')[0].innerHTML.match(/\(*?.ru\)/)) {
+        $('#list-of-results')[0].innerHTML = '';
+      }
       $('#list-of-results')[0].innerHTML += `
         <h1>
         <br/>

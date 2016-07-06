@@ -86,6 +86,9 @@ function hhSearch() {
 
   hh('vacancies', null, function(response){
     if (!response.items.length) {
+      if ($('#list-of-results')[0].innerHTML.match(/\(*?.ru\)/)) {
+        $('#list-of-results')[0].innerHTML = '';
+      }
       $('#list-of-results')[0].innerHTML += `
         <h1>
           <br/>
