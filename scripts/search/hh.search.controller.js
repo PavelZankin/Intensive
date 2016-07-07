@@ -56,15 +56,12 @@ function hhParseDate(hhDate) {
 
 function hhSearch() {
   if (!hh.getLocalParams().text) return;
-  if (hh.getLocalParams().text.length > 256) return;
 
   hh('vacancies', null, function(response){
     if (!response.items.length) {
-      if ($('#list-of-results')[0].innerHTML.match(/\(*?.ru\)/)) {
-        $('#list-of-results')[0].innerHTML = '';
-      }
+
       if (!$('#list-of-results')[0].innerHTML.match(/По данному запросу ничего/)) {
-        $('#list-of-results')[0].innerHTML = `
+        $('#list-of-results')[0].innerHTML += `
           <h1>
             <br/>
               По данному запросу ничего не найдено.

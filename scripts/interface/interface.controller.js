@@ -26,15 +26,19 @@ $('#moreSearch').on('click', function(){
     this.opened = !this.opened;
 });
 
-/* кнопка поиска */
-$('#buttonSearch').on('click', function() {
+function reSearch() {
+  $('#list-of-results')[0].innerHTML = '';
   hhSearch();
   sjSearch();
+}
+
+/* кнопка поиска */
+$('#buttonSearch').on('click', function() {
+  reSearch();
 });
 
 $('#per_page').on('change', function() {
-  hhSearch();
-  sjSearch();
+  reSearch();
 });
 
 /* Клик по вакансии */
