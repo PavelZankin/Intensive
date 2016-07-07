@@ -237,7 +237,7 @@ input[name=search] {
     text-align: center;
     display: inline-block;
     font-size: 20px;
-    margin: 20px; 
+    margin: 20px;
 }
 
 .job a {
@@ -255,21 +255,14 @@ input[name=search] {
     display:none;
 }
 
-/* раскрывающиеся div с вакансией 
-.job-off {
-    border: 2px solid rgba(0, 0, 0, 0.7);
-    width: 60%;
-    height: 160px;
-    overflow: hidden;
-    margin: 10px auto;
-    box-sizing: border-box;
-    padding: 20px 50px 20px 150px;
-    position: relative;
-    box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 2px;
-    cursor: pointer;
+.job {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid rgb(28, 16, 13);
 }
-.superjob{
+/*.superjob{
     background: url(../images/superjob.gif);
     height: 50px;
     width: 110px;
@@ -279,7 +272,6 @@ input[name=search] {
     right: 80px;
 }
 */
-
 /*
 .moreInf{
     background: url(../images/more.jpg) no-repeat;

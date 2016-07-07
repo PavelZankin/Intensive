@@ -19,8 +19,6 @@ var hhTempl = `
 
 
     <span class="date"><%- vac.created_at %></span><br/>
-
-    <hr/>
     </div>
   <% }); %>
 `;
@@ -44,8 +42,6 @@ var sjTempl = `
   </div><br/>
 
   <span class="date"><%- vac.date_published %></span><br/>
-
-  <hr/>
   </div>
 <% }); %>
 `;
